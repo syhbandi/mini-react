@@ -1,35 +1,33 @@
-const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports= {
-  output:{
-    publicPath: '/',
+module.exports = {
+  output: {
+    publicPath: "/",
+    hashFunction: "xxhash64",
   },
-  devServer:{
-    port: 3000,
-    historyApiFallback: true
+  devServer: {
+    port: 3001,
+    historyApiFallback: true,
   },
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:{
-          loader: 'babel-loader'
-        }
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.css$/,
-        use:[
-          'style-loader',
-          'css-loader'
-        ]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
-  plugins:[
+  plugins: [
     new htmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
-}
+      template: "./src/index.html",
+    }),
+  ],
+};
